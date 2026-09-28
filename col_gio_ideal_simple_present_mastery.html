@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colégio Ideal - Simple Present Review & Quiz (6º Ano - Ensino Fundamental II)</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F25A24',
+              orangeDark: '#D64612',
+              purple: '#1E1638',
+              purpleLight: '#2D234F',
+              purpleDark: '#130E26',
+              bgLight: '#F5F5F8',
+              accent: '#FFE5D9'
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F5F5F8;
+      color: #1E1638;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #EBF0F5;
+      border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #F25A24;
+      border-radius: 8px;
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -5px rgba(30, 22, 56, 0.08), 0 4px 12px -2px rgba(30, 22, 56, 0.04);
+    }
+    .word-chip {
+      user-select: none;
+      transition: all 0.15s ease-in-out;
+    }
+    .word-chip:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+  <!-- HEADER INSTITUCIONAL -->
+  <header class="bg-brand-purple text-white sticky top-0 z-50 border-b-4 border-brand-orange shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      
+      <!-- LOGO VETORIZADA FIEL DO COLÉGIO IDEAL -->
+      <div class="flex items-center space-x-3.5 cursor-pointer" onclick="showPage('page-review')">
+        <svg class="h-12 sm:h-14 w-auto drop-shadow-sm" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Card Base Laranja com Canto Superior Direito e Inferior Esquerdo Curvos -->
+          <path d="M 0 60 C 0 26.86 26.86 0 60 0 L 320 0 C 419.41 0 500 80.59 500 180 L 500 440 C 500 473.14 473.14 500 440 500 L 60 500 C 26.86 500 0 473.14 0 440 Z" fill="#F25A24"/>
+          
+          <!-- Moldura Arc Roxo Escuro Externa Inferior Esquerda -->
+          <path d="M 15 270 L 65 270 L 65 410 C 65 432.09 82.91 450 105 450 L 280 450 C 160 450 65 355 65 220 L 15 220 Z" fill="#1E1638"/>
+          <rect x="18" y="160" width="47" height="47" rx="6" fill="#1E1638"/>
+          
+          <!-- Moldura Arc Roxo Escuro Externa Superior Direita -->
+          <path d="M 435 0 L 435 250 C 435 345 355 425 260 425 L 320 485 C 415 485 485 415 485 320 L 485 0 Z" fill="#1E1638"/>
+
+          <!-- Texto COLÉGIO -->
+          <text x="66" y="258" font-family="'Inter', sans-serif" font-weight="800" font-size="33" fill="#FFFFFF" letter-spacing="2">COLÉGIO</text>
+          
+          <!-- Logotipo idea com arco sobre o 'a' -->
+          <text x="210" y="278" font-family="'Inter', sans-serif" font-weight="900" font-size="92" fill="#FFFFFF">idea</text>
+          <path d="M 412 185 C 438 185 452 202 452 228 L 452 280 L 424 280 L 424 232 C 424 218 416 211 405 211 C 394 211 386 218 386 232 L 386 280 L 358 280 L 358 228 C 358 202 372 185 412 185 Z" fill="#FFFFFF"/>
+        </svg>
+
+        <div class="flex flex-col">
+          <span class="text-[10px] uppercase font-black text-brand-accent tracking-widest leading-none">Ensino Fundamental II</span>
+          <span class="text-base sm:text-lg font-black tracking-tight text-white leading-tight">Simple Present • 6º Ano</span>
+        </div>
+      </div>
+
+      <!-- Badge de Identificação do Aluno no Cabeçalho -->
+      <div id="header-student-badge" class="hidden items-center space-x-2.5 bg-brand-purpleLight px-3.5 py-1.5 rounded-full border border-orange-500/30">
+        <div class="w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center text-xs text-white font-bold">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <span id="nav-student-name" class="text-xs sm:text-sm font-semibold text-white">Aluno</span>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+    <!-- PÁGINA 1: REVISÃO TEÓRICA -->
+    <section id="page-review" class="space-y-8 animate-fade-in">
+      
+      <!-- Hero Banner -->
+      <div class="bg-gradient-to-br from-brand-purple via-brand-purpleLight to-brand-purple text-white rounded-3xl p-6 sm:p-10 card-shadow relative overflow-hidden border border-brand-purpleLight">
+        <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-brand-orange opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl relative z-10 space-y-3">
+          <span class="inline-flex items-center bg-brand-orange text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-book-open mr-1.5"></i> Material de Apoio Pedagógico
+          </span>
+          <h1 class="text-2xl sm:text-4xl font-black tracking-tight">
+            Colégio Ideal - Revisão de Inglês (6º Ano - Ensino Fundamental II)
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Revise os conceitos essenciais do <strong>Simple Present</strong> antes de realizar o quiz interativo. Preste atenção especial às regras da terceira pessoa (he, she, it) e à estrutura do segundo verbo no gerúndio (-ing).
+          </p>
+        </div>
+      </div>
+
+      <!-- Grid Teórico -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Cartão 1: Conceito e Afirmativa -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 card-shadow space-y-4 hover:border-brand-orange/40 transition">
+          <div class="flex items-center space-x-3 text-brand-orange font-extrabold text-lg border-b border-slate-100 pb-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center text-brand-orange">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h2>1. Conceito e Estrutura Afirmativa</h2>
+          </div>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            O <strong>Simple Present</strong> é utilizado para expressar ações habituais, rotinas do dia a dia, fatos gerais e preferências.
+          </p>
+          
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+            <h3 class="font-extrabold text-brand-purple text-xs uppercase tracking-wider flex items-center">
+              <i class="fa-solid fa-plus-circle text-brand-orange mr-2"></i> Estrutura da Frase Afirmativa
+            </h3>
+            <p class="text-xs text-slate-500 font-mono bg-white p-2 rounded border border-slate-200">Sujeito + Verbo Principal + Complemento</p>
+            <ul class="text-sm space-y-2 pt-1 text-slate-800">
+              <li class="flex items-start">
+                <span class="text-brand-orange mr-2 font-bold">•</span>
+                <span><strong>I study English every day.</strong> <span class="text-slate-500 text-xs">(Eu estudo inglês todos os dias.)</span></span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-brand-orange mr-2 font-bold">•</span>
+                <span><strong>They live in Sergipe.</strong> <span class="text-slate-500 text-xs">(Eles moram em Sergipe.)</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cartão 2: Regras do He / She / It -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 card-shadow space-y-4 hover:border-brand-orange/40 transition">
+          <div class="flex items-center space-x-3 text-brand-orange font-extrabold text-lg border-b border-slate-100 pb-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center text-brand-orange">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h2>2. Regras da 3ª Pessoa (He, She, It)</h2>
+          </div>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            Em frases <strong>afirmativas</strong>, quando o sujeito for <strong>He, She ou It</strong>, o verbo sofre alterações no final:
+          </p>
+
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="p-3 bg-orange-50/70 rounded-xl border border-orange-200/80">
+              <span class="font-bold text-brand-orange block mb-0.5">Regra Geral (+S):</span>
+              Adiciona-se a letra <strong>-s</strong> ao final do verbo.
+              <p class="text-slate-700 mt-1"><strong>She plays tennis.</strong> <span class="text-slate-500 text-xs">(Ela joga tênis.)</span></p>
+            </div>
+
+            <div class="p-3 bg-orange-50/70 rounded-xl border border-orange-200/80">
+              <span class="font-bold text-brand-orange block mb-0.5">Terminados em -ch, -sh, -ss, -x, -z, -o (+ES):</span>
+              Adiciona-se <strong>-es</strong> ao verbo.
+              <p class="text-slate-700 mt-1"><strong>He watches TV.</strong> <span class="text-slate-500 text-xs">(Ele assiste TV.)</span> | <strong>She goes to school.</strong> <span class="text-slate-500 text-xs">(Ela vai à escola.)</span></p>
+            </div>
+
+            <div class="p-3 bg-orange-50/70 rounded-xl border border-orange-200/80">
+              <span class="font-bold text-brand-orange block mb-0.5">Consoante + Y (-IES):</span>
+              Troca-se o <strong>-y</strong> por <strong>-ies</strong>.
+              <p class="text-slate-700 mt-1"><strong>He studies history.</strong> <span class="text-slate-500 text-xs">(Ele estuda história.)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cartão 3: Negativas e Interrogativas -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 card-shadow space-y-4 hover:border-brand-orange/40 transition">
+          <div class="flex items-center space-x-3 text-brand-orange font-extrabold text-lg border-b border-slate-100 pb-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center text-brand-orange">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h2>3. Estruturas Negativa e Interrogativa</h2>
+          </div>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            Utilizam-se os verbos auxiliares <strong>DO</strong> e <strong>DOES</strong>. Ao utilizar o auxiliar, o verbo principal volta para sua forma original sem alterações.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div class="p-3.5 bg-rose-50/70 rounded-xl border border-rose-200 space-y-1.5">
+              <h3 class="font-extrabold text-rose-700 text-xs uppercase tracking-wider flex items-center">
+                <i class="fa-solid fa-minus-circle mr-1.5"></i> Estrutura Negativa
+              </h3>
+              <p class="text-xs text-slate-600 font-mono">Sujeito + don't / doesn't + Verbo Base + Comp.</p>
+              <p class="text-xs font-semibold text-slate-800">I / You / We / They + don't</p>
+              <p class="text-xs font-semibold text-slate-800">He / She / It + doesn't</p>
+              <p class="text-xs text-slate-800 pt-1"><strong>He doesn't like milk.</strong> <span class="text-slate-500">(Ele não gosta de leite.)</span></p>
+            </div>
+
+            <div class="p-3.5 bg-blue-50/70 rounded-xl border border-blue-200 space-y-1.5">
+              <h3 class="font-extrabold text-blue-700 text-xs uppercase tracking-wider flex items-center">
+                <i class="fa-solid fa-question-circle mr-1.5"></i> Estrutura Interrogativa
+              </h3>
+              <p class="text-xs text-slate-600 font-mono">Do / Does + Sujeito + Verbo Base + Comp.?</p>
+              <p class="text-xs font-semibold text-slate-800">Do + I / you / we / they... ?</p>
+              <p class="text-xs font-semibold text-slate-800">Does + he / she / it... ?</p>
+              <p class="text-xs text-slate-800 pt-1"><strong>Do you live here?</strong> <span class="text-slate-500">(Você mora aqui?)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cartão 4: Segundo Verbo no Gerúndio (-ING) -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-brand-orange card-shadow space-y-4 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-brand-orange text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+            Foco do 6º Ano
+          </div>
+          <div class="flex items-center space-x-3 text-brand-purple font-extrabold text-lg border-b border-slate-100 pb-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-purple text-brand-orange flex items-center justify-center">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h2>4. Verbo + Gerúndio (-ING)</h2>
+          </div>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            Ao utilizar verbos de preferência seguidos por outra ação, o <strong>segundo verbo</strong> obrigatoriamente recebe a terminação <strong>-ING</strong>:
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs font-bold text-brand-purple">
+            <div class="p-2 bg-purple-50 rounded-lg border border-purple-100">like <span class="block text-[10px] text-slate-500 font-normal">(gostar)</span></div>
+            <div class="p-2 bg-purple-50 rounded-lg border border-purple-100">love <span class="block text-[10px] text-slate-500 font-normal">(amar)</span></div>
+            <div class="p-2 bg-purple-50 rounded-lg border border-purple-100">enjoy <span class="block text-[10px] text-slate-500 font-normal">(aproveitar)</span></div>
+            <div class="p-2 bg-purple-50 rounded-lg border border-purple-100">hate <span class="block text-[10px] text-slate-500 font-normal">(odiar)</span></div>
+            <div class="p-2 bg-purple-50 rounded-lg border border-purple-100">prefer <span class="block text-[10px] text-slate-500 font-normal">(preferir)</span></div>
+          </div>
+
+          <div class="bg-amber-50/80 p-3.5 rounded-xl border border-amber-200 text-xs sm:text-sm space-y-1.5 text-slate-800">
+            <p><strong>I enjoy reading books.</strong> <span class="text-slate-600">(Eu gosto de ler livros.)</span></p>
+            <p><strong>She loves playing soccer.</strong> <span class="text-slate-600">(Ela ama jogar futebol.)</span></p>
+            <p><strong>He hates getting up early.</strong> <span class="text-slate-600">(Ele odeia acordar cedo.)</span></p>
+            <p><strong>They prefer watching movies at home.</strong> <span class="text-slate-600">(Eles preferem assistir filmes em casa.)</span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botão para Iniciar Quiz -->
+      <div class="text-center pt-4 pb-6">
+        <button onclick="showPage('page-student')" class="bg-brand-orange hover:bg-brand-orangeDark text-white font-extrabold text-lg px-10 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition duration-200 inline-flex items-center space-x-3">
+          <span>Start Quiz!</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- PÁGINA 2: IDENTIFICAÇÃO DO ALUNO -->
+    <section id="page-student" class="hidden max-w-md mx-auto py-12">
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-slate-200 text-center space-y-6">
+        <div class="w-16 h-16 bg-orange-100 text-brand-orange rounded-2xl mx-auto flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        
+        <div>
+          <h2 class="text-2xl font-extrabold text-brand-purple">Identificação do Aluno</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
+            Informe seu nome completo e turma para registrarmos seu desempenho e gerar o seu relatório ao final do quiz.
+          </p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); startQuiz();" class="space-y-4 text-left">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Nome Completo do Aluno</label>
+            <input type="text" id="student-name-input" required placeholder="Ex: Mariana Costa Lima" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent text-slate-800 font-semibold text-sm">
+          </div>
+
+          <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeDark text-white font-extrabold py-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 text-base">
+            <span>Iniciar Quiz (40 Questões)</span>
+            <i class="fa-solid fa-play-circle"></i>
+          </button>
+        </form>
+
+        <button onclick="showPage('page-review')" class="text-xs font-bold text-slate-400 hover:text-brand-purple transition">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Voltar para a revisão teórica
+        </button>
+      </div>
+    </section>
+
+    <!-- PÁGINA 3: QUIZ ENGINE -->
+    <section id="page-quiz" class="hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+        <!-- Sidebar / Navigation Grid -->
+        <div class="lg:col-span-1 bg-white rounded-2xl p-5 border border-slate-200 card-shadow h-fit space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-extrabold text-brand-purple text-xs uppercase tracking-wider flex items-center">
+              <i class="fa-solid fa-list-ol text-brand-orange mr-2"></i> Questões
+            </span>
+            <span id="quiz-progress-badge" class="text-xs font-black bg-orange-100 text-brand-orange px-2.5 py-1 rounded-full">
+              1 / 40
+            </span>
+          </div>
+
+          <!-- Grade 1 a 40 -->
+          <div id="question-grid" class="grid grid-cols-5 gap-2 max-h-72 lg:max-h-none overflow-y-auto custom-scrollbar p-0.5">
+            <!-- Populated via JS -->
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-500 space-y-1.5 font-medium">
+            <div class="flex items-center"><span class="w-3 h-3 bg-slate-200 rounded-full mr-2"></span> Não respondida</div>
+            <div class="flex items-center"><span class="w-3 h-3 bg-emerald-500 rounded-full mr-2"></span> Correta</div>
+            <div class="flex items-center"><span class="w-3 h-3 bg-rose-500 rounded-full mr-2"></span> Incorreta</div>
+          </div>
+        </div>
+
+        <!-- Main Question Container -->
+        <div class="lg:col-span-3 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow space-y-6 flex flex-col justify-between min-h-[500px]">
+          
+          <div>
+            <!-- Top Status Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+              <span id="question-block-badge" class="bg-purple-100 text-brand-purple text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                Bloco 1: Afirmativa
+              </span>
+              <span id="question-format-badge" class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                Múltipla Escolha
+              </span>
+            </div>
+
+            <!-- Question Prompt Text -->
+            <h3 id="question-prompt-text" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-6">
+              <!-- Content via JS -->
+            </h3>
+
+            <!-- Dynamic Interaction Area (MCQ or Unscramble) -->
+            <div id="question-interaction-area" class="space-y-4">
+              <!-- Content via JS -->
+            </div>
+
+            <!-- Feedback Container -->
+            <div id="feedback-box" class="hidden mt-6 p-4 rounded-xl border text-sm leading-relaxed transition-all">
+              <!-- Content via JS -->
+            </div>
+          </div>
+
+          <!-- Bottom Action Controls -->
+          <div class="flex items-center justify-between pt-6 border-t border-slate-100 mt-6 gap-2">
+            <button id="btn-prev" onclick="prevQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-50 transition flex items-center space-x-1.5 disabled:opacity-40 disabled:cursor-not-allowed">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span class="hidden sm:inline">Anterior</span>
+            </button>
+
+            <button id="btn-check" onclick="checkCurrentAnswer()" class="bg-brand-orange hover:bg-brand-orangeDark text-white font-extrabold px-6 py-2.5 rounded-xl shadow-md transition flex items-center space-x-2 text-xs sm:text-sm">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Check Answer</span>
+            </button>
+
+            <button id="btn-next" onclick="nextQuestion()" class="px-4 py-2.5 rounded-xl bg-brand-purple hover:bg-brand-purpleLight text-white font-bold text-xs sm:text-sm transition flex items-center space-x-1.5">
+              <span class="hidden sm:inline" id="btn-next-label">Próxima</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 4: RELATÓRIO E DASHBOARD -->
+    <section id="page-report" class="hidden space-y-8 animate-fade-in max-w-4xl mx-auto">
+      
+      <!-- Report Header Card -->
+      <div class="bg-gradient-to-br from-brand-purple via-brand-purpleLight to-brand-purple text-white rounded-3xl p-8 card-shadow text-center relative overflow-hidden border border-brand-purpleLight space-y-4">
+        <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-brand-orange opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <span class="bg-brand-orange text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">
+          Relatório de Desempenho
+        </span>
+        
+        <h2 class="text-3xl sm:text-4xl font-black">Parabéns, <span id="report-student-name" class="text-brand-orange">Aluno</span>!</h2>
+        <p class="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+          Você concluiu com sucesso todas as 40 questões de revisão do Simple Present do Colégio Ideal (Ensino Fundamental II).
+        </p>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-3 gap-3 pt-2 max-w-md mx-auto">
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+            <span class="block text-2xl sm:text-3xl font-black text-white" id="report-percent">0%</span>
+            <span class="text-[10px] text-slate-300 uppercase font-bold">Aproveitamento</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+            <span class="block text-2xl sm:text-3xl font-black text-emerald-400" id="report-correct">0</span>
+            <span class="text-[10px] text-slate-300 uppercase font-bold">Acertos</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+            <span class="block text-2xl sm:text-3xl font-black text-rose-400" id="report-wrong">0</span>
+            <span class="text-[10px] text-slate-300 uppercase font-bold">Erros</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Performance Bars -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 card-shadow space-y-5">
+        <h3 class="font-extrabold text-brand-purple text-base border-b border-slate-100 pb-3 flex items-center">
+          <i class="fa-solid fa-chart-column text-brand-orange mr-2"></i> Desempenho Detalhado por Tópico
+        </h3>
+
+        <!-- Afirmativas -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-bold text-slate-700">
+            <span>Frases Afirmativas (10 Questões)</span>
+            <span id="topic-aff-text">0 / 10</span>
+          </div>
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+            <div id="topic-aff-bar" class="h-full bg-brand-orange transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Negativas -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-bold text-slate-700">
+            <span>Frases Negativas (15 Questões)</span>
+            <span id="topic-neg-text">0 / 15</span>
+          </div>
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+            <div id="topic-neg-bar" class="h-full bg-brand-orange transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Interrogativas -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-bold text-slate-700">
+            <span>Frases Interrogativas (15 Questões)</span>
+            <span id="topic-int-text">0 / 15</span>
+          </div>
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+            <div id="topic-int-bar" class="h-full bg-brand-orange transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Verbo + ING -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-bold text-slate-700">
+            <span>Estruturas de Verbo + Gerúndio (-ing)</span>
+            <span id="topic-ing-text">0 / 0</span>
+          </div>
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+            <div id="topic-ing-bar" class="h-full bg-brand-purple transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pedagogical Analysis -->
+      <div class="bg-amber-50/80 rounded-2xl p-6 border border-amber-200 text-amber-950 card-shadow space-y-3">
+        <h3 class="font-extrabold text-amber-900 text-base flex items-center">
+          <i class="fa-solid fa-compass text-amber-600 mr-2"></i> Diagnóstico Pedagógico Recomendado
+        </h3>
+        <ul id="report-recommendations-list" class="space-y-2 text-xs sm:text-sm text-amber-900 leading-relaxed font-medium">
+          <!-- Populated via JS -->
+        </ul>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 pt-2">
+        <button onclick="restartQuiz()" class="bg-brand-purple hover:bg-brand-purpleLight text-white font-extrabold px-8 py-3.5 rounded-xl shadow-md transition inline-flex items-center space-x-2 text-sm">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>Refazer Quiz</span>
+        </button>
+        <button onclick="showPage('page-review')" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-extrabold px-8 py-3.5 rounded-xl transition inline-flex items-center space-x-2 text-sm">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Voltar para Revisão</span>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purpleDark text-slate-400 text-[11px] py-6 mt-12 border-t border-slate-800 text-center">
+    <p>© Colégio Ideal • Aracaju, Sergipe. Plataforma de Aprendizagem de Língua Inglesa - 6º Ano do Ensino Fundamental II.</p>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    let studentName = "";
+    let currentQuestionIdx = 0;
+
+    // 40 QUESTIONS: 10 Affirmative (4 MCQ + 6 Unscramble), 15 Negative (6 MCQ + 9 Unscramble), 15 Interrogative (6 MCQ + 9 Unscramble)
+    const questions = [
+      // ==========================================
+      // BLOCO 1: AFIRMATIVAS (10 Questões: 4 MCQ, 6 Unscramble)
+      // ==========================================
+      {
+        id: 1,
+        category: 'Affirmative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Qual opção completa corretamente a frase: "She _____ reading storybooks in her bedroom."',
+        options: [
+          'likes',
+          'like',
+          'liking',
+          'is like',
+          'likes to'
+        ],
+        correctIndex: 0,
+        explanation: 'Para a 3ª pessoa do singular (She), adiciona-se -s ao verbo principal (likes). Além disso, o verbo "like" exige que o segundo verbo venha no gerúndio com -ing (reading).'
+      },
+      {
+        id: 2,
+        category: 'Affirmative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a alternativa que completa a frase: "My brother _____ TV every evening after dinner."',
+        options: [
+          'watches',
+          'watch',
+          'watchs',
+          'watching',
+          'is watch'
+        ],
+        correctIndex: 0,
+        explanation: 'Verbos terminados em -ch recebem -es na 3ª pessoa do singular (My brother = He), resultando em "watches".'
+      },
+      {
+        id: 3,
+        category: 'Affirmative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Escolha a opção correta: "We _____ playing video games on Saturdays."',
+        options: [
+          'enjoy',
+          'enjoys',
+          'enjoying',
+          'are enjoy',
+          'enjoyes'
+        ],
+        correctIndex: 0,
+        explanation: 'Com o sujeito "We", o verbo permanece na forma base ("enjoy"). O verbo "enjoy" exige o gerúndio no verbo seguinte ("playing").'
+      },
+      {
+        id: 4,
+        category: 'Affirmative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a frase afirmativa gramaticalmente correta no Simple Present:',
+        options: [
+          'He studies English at Colégio Ideal.',
+          'He studys English at Colégio Ideal.',
+          'He study English at Colégio Ideal.',
+          'He is study English at Colégio Ideal.',
+          'He studyes English at Colégio Ideal.'
+        ],
+        correctIndex: 0,
+        explanation: 'Verbos terminados em consoante + Y (study) trocam o Y por -ies na 3ª pessoa (He), formando "studies".'
+      },
+      {
+        id: 5,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['They', 'love', 'swimming', 'in', 'the', 'pool.'],
+        correctSentence: 'They love swimming in the pool.',
+        explanation: 'Sujeito "They" + verbo "love" + segundo verbo com -ing ("swimming") + complemento.'
+      },
+      {
+        id: 6,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['My', 'mother', 'works', 'at', 'a', 'hospital.'],
+        correctSentence: 'My mother works at a hospital.',
+        explanation: 'O sujeito "My mother" (She) exige a terminação -s no verbo ("works").'
+      },
+      {
+        id: 7,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['He', 'prefers', 'eating', 'fruits', 'for', 'breakfast.'],
+        correctSentence: 'He prefers eating fruits for breakfast.',
+        explanation: 'A 3ª pessoa "He" altera "prefer" para "prefers", seguido do verbo no gerúndio "eating".'
+      },
+      {
+        id: 8,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['We', 'live', 'in', 'a', 'nice', 'city.'],
+        correctSentence: 'We live in a nice city.',
+        explanation: 'Com o sujeito "We", o verbo "live" permanece sem alterações na frase afirmativa.'
+      },
+      {
+        id: 9,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['I', 'start', 'studying', 'at', 'seven', 'o\'clock.'],
+        correctSentence: 'I start studying at seven o\'clock.',
+        explanation: 'O verbo "start" é seguido pelo verbo principal no gerúndio com -ing ("studying").'
+      },
+      {
+        id: 10,
+        category: 'Affirmative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['The', 'cat', 'sleeps', 'on', 'the', 'sofa.'],
+        correctSentence: 'The cat sleeps on the sofa.',
+        explanation: 'O sujeito "The cat" (It) requer a flexão de 3ª pessoa -s no verbo: "sleeps".'
+      },
+
+      // ==========================================
+      // BLOCO 2: NEGATIVAS (15 Questões: 6 MCQ, 9 Unscramble)
+      // ==========================================
+      {
+        id: 11,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a forma negativa correta para a frase com "She":',
+        options: [
+          'She doesn\'t like cold pizza.',
+          'She don\'t like cold pizza.',
+          'She doesn\'t likes cold pizza.',
+          'She not like cold pizza.',
+          'She isn\'t like cold pizza.'
+        ],
+        correctIndex: 0,
+        explanation: 'Para "She", usa-se o auxiliar negativo "doesn\'t". O verbo principal "like" volta à sua forma base.'
+      },
+      {
+        id: 12,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Escolha a frase negativa correta contendo verbo no gerúndio (-ing):',
+        options: [
+          'They don\'t mind waiting in line.',
+          'They doesn\'t mind waiting in line.',
+          'They don\'t mind wait in line.',
+          'They don\'t minds waiting in line.',
+          'They not mind waiting in line.'
+        ],
+        correctIndex: 0,
+        explanation: 'O sujeito "They" utiliza o auxiliar negativo "don\'t". O verbo "mind" é seguido de gerúndio ("waiting").'
+      },
+      {
+        id: 13,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Complete a frase negativa: "I _____ play computer games on Mondays."',
+        options: [
+          'don\'t',
+          'doesn\'t',
+          'not',
+          'am not',
+          'doesn\'t play'
+        ],
+        correctIndex: 0,
+        explanation: 'Para o sujeito "I", o auxiliar negativo no Simple Present é "don\'t".'
+      },
+      {
+        id: 14,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Complete: "Peter _____ go to school by bus."',
+        options: [
+          'doesn\'t',
+          'don\'t',
+          'isn\'t',
+          'not',
+          'doesn\'t goes'
+        ],
+        correctIndex: 0,
+        explanation: 'Peter (He) exige "doesn\'t". Com o auxiliar "doesn\'t", o verbo principal fica na forma base ("go").'
+      },
+      {
+        id: 15,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Qual a forma negativa correta?',
+        options: [
+          'He doesn\'t enjoy dancing at parties.',
+          'He don\'t enjoy dancing at parties.',
+          'He doesn\'t enjoys dancing at parties.',
+          'He doesn\'t enjoy dance at parties.',
+          'He isn\'t enjoy dancing at parties.'
+        ],
+        correctIndex: 0,
+        explanation: 'Com "He", usa-se "doesn\'t enjoy". O segundo verbo "dancing" permanece no gerúndio.'
+      },
+      {
+        id: 16,
+        category: 'Negative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a alternativa em que a frase negativa está correta:',
+        options: [
+          'We don\'t live in London.',
+          'We doesn\'t live in London.',
+          'We don\'t lives in London.',
+          'We not live in London.',
+          'We aren\'t live in London.'
+        ],
+        correctIndex: 0,
+        explanation: 'O sujeito "We" combina com o auxiliar "don\'t" + verbo na forma base "live".'
+      },
+      {
+        id: 17,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['She', 'doesn\'t', 'like', 'waking', 'up', 'early.'],
+        correctSentence: 'She doesn\'t like waking up early.',
+        explanation: 'Frase negativa com She: "doesn\'t like" + verbo no gerúndio "waking".'
+      },
+      {
+        id: 18,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['They', 'don\'t', 'eat', 'meat', 'for', 'lunch.'],
+        correctSentence: 'They don\'t eat meat for lunch.',
+        explanation: 'Sujeito "They" + auxiliar "don\'t" + verbo base "eat".'
+      },
+      {
+        id: 19,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['I', 'don\'t', 'enjoy', 'running', 'in', 'the', 'rain.'],
+        correctSentence: 'I don\'t enjoy running in the rain.',
+        explanation: 'Sujeito "I" + "don\'t enjoy" + verbo no gerúndio "running".'
+      },
+      {
+        id: 20,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['My', 'dog', 'doesn\'t', 'bark', 'at', 'night.'],
+        correctSentence: 'My dog doesn\'t bark at night.',
+        explanation: 'My dog (It) utiliza o auxiliar negativo "doesn\'t" e o verbo "bark" sem alterações.'
+      },
+      {
+        id: 21,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['We', 'don\'t', 'finish', 'studying', 'before', 'six.'],
+        correctSentence: 'We don\'t finish studying before six.',
+        explanation: 'Uso de "don\'t finish" seguido de gerúndio "studying".'
+      },
+      {
+        id: 22,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['You', 'don\'t', 'know', 'the', 'answer.'],
+        correctSentence: 'You don\'t know the answer.',
+        explanation: 'O sujeito "You" utiliza o auxiliar "don\'t".'
+      },
+      {
+        id: 23,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['He', 'doesn\'t', 'stop', 'talking', 'in', 'class.'],
+        correctSentence: 'He doesn\'t stop talking in class.',
+        explanation: 'Uso de "doesn\'t stop" seguido do verbo no gerúndio "talking".'
+      },
+      {
+        id: 24,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['It', 'doesn\'t', 'rain', 'much', 'in', 'summer.'],
+        correctSentence: 'It doesn\'t rain much in summer.',
+        explanation: 'O sujeito "It" utiliza o auxiliar negativo "doesn\'t".'
+      },
+      {
+        id: 25,
+        category: 'Negative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['My', 'friends', 'don\'t', 'hate', 'playing', 'basketball.'],
+        correctSentence: 'My friends don\'t hate playing basketball.',
+        explanation: 'My friends (They) usa "don\'t hate" + gerúndio "playing".'
+      },
+
+      // ==========================================
+      // BLOCO 3: INTERROGATIVAS (15 Questões: 6 MCQ, 9 Unscramble)
+      // ==========================================
+      {
+        id: 26,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a pergunta feita corretamente no Simple Present:',
+        options: [
+          'Do you live in Aracaju?',
+          'Does you live in Aracaju?',
+          'Are you live in Aracaju?',
+          'Do you lives in Aracaju?',
+          'Is you live in Aracaju?'
+        ],
+        correctIndex: 0,
+        explanation: 'Perguntas para o sujeito "you" utilizam o verbo auxiliar "Do" no início da frase.'
+      },
+      {
+        id: 27,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Escolha a pergunta correta contendo verbo no gerúndio (-ing):',
+        options: [
+          'Does she like listening to music?',
+          'Do she like listening to music?',
+          'Does she likes listening to music?',
+          'Does she like listen to music?',
+          'Is she like listening to music?'
+        ],
+        correctIndex: 0,
+        explanation: 'A pergunta inicia com "Does" para "she". O verbo "like" fica na forma base e o segundo verbo vem no gerúndio ("listening").'
+      },
+      {
+        id: 28,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Complete a pergunta: "_____ your brother play soccer?"',
+        options: [
+          'Does',
+          'Do',
+          'Is',
+          'Are',
+          'Has'
+        ],
+        correctIndex: 0,
+        explanation: '"Your brother" corresponde ao pronome He, portanto o auxiliar interrogativo correto é "Does".'
+      },
+      {
+        id: 29,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Complete a pergunta: "Do they _____ playing volleyball?"',
+        options: [
+          'prefer',
+          'prefers',
+          'preferring',
+          'preferred',
+          'to prefer'
+        ],
+        correctIndex: 0,
+        explanation: 'Na pergunta iniciada por "Do", o verbo principal "prefer" permanece em sua forma base.'
+      },
+      {
+        id: 30,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: false,
+        prompt: 'Assinale a alternativa em que a pergunta está correta:',
+        options: [
+          'Do we have homework today?',
+          'Does we have homework today?',
+          'Do we has homework today?',
+          'Are we have homework today?',
+          'Do we having homework today?'
+        ],
+        correctIndex: 0,
+        explanation: 'Para o sujeito "we", usa-se o auxiliar "Do" + verbo na forma base "have".'
+      },
+      {
+        id: 31,
+        category: 'Interrogative',
+        type: 'mcq',
+        hasIng: true,
+        prompt: 'Qual pergunta está gramaticalmente correta?',
+        options: [
+          'Does he hate studying history?',
+          'Do he hate studying history?',
+          'Does he hates studying history?',
+          'Does he hate study history?',
+          'Is he hate studying history?'
+        ],
+        correctIndex: 0,
+        explanation: 'Pergunta com "Does" para "he" + verbo no gerúndio ("studying") após "hate".'
+      },
+      {
+        id: 32,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['Do', 'you', 'speak', 'English', 'at', 'home?'],
+        correctSentence: 'Do you speak English at home?',
+        explanation: 'Estrutura interrogativa: Auxiliar (Do) + Sujeito (you) + Verbo (speak) + Complemento.'
+      },
+      {
+        id: 33,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['Does', 'she', 'enjoy', 'reading', 'comic', 'books?'],
+        correctSentence: 'Does she enjoy reading comic books?',
+        explanation: 'Auxiliar (Does) + Sujeito (she) + Verbo (enjoy) + Gerúndio (reading).'
+      },
+      {
+        id: 34,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['Do', 'they', 'watch', 'movies', 'on', 'Fridays?'],
+        correctSentence: 'Do they watch movies on Fridays?',
+        explanation: 'Estrutura de pergunta com Do + They + watch.'
+      },
+      {
+        id: 35,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['Do', 'you', 'like', 'cooking', 'with', 'your', 'family?'],
+        correctSentence: 'Do you like cooking with your family?',
+        explanation: 'Auxiliar (Do) + Sujeito (you) + like + gerúndio (cooking).'
+      },
+      {
+        id: 36,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['Does', 'the', 'bus', 'arrive', 'on', 'time?'],
+        correctSentence: 'Does the bus arrive on time?',
+        explanation: 'The bus (It) exige "Does" no início e verbo sem alterações ("arrive").'
+      },
+      {
+        id: 37,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['Does', 'he', 'prefer', 'playing', 'guitar', 'or', 'piano?'],
+        correctSentence: 'Does he prefer playing guitar or piano?',
+        explanation: 'Auxiliar (Does) + Sujeito (he) + prefer + gerúndio (playing).'
+      },
+      {
+        id: 38,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['Do', 'we', 'need', 'our', 'books', 'now?'],
+        correctSentence: 'Do we need our books now?',
+        explanation: 'Auxiliar (Do) + Sujeito (we) + Verbo (need).'
+      },
+      {
+        id: 39,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: true,
+        words: ['Does', 'your', 'friend', 'love', 'skateboarding?'],
+        correctSentence: 'Does your friend love skateboarding?',
+        explanation: 'Your friend (He/She) exige "Does" + verbo "love" + gerúndio "skateboarding".'
+      },
+      {
+        id: 40,
+        category: 'Interrogative',
+        type: 'unscramble',
+        hasIng: false,
+        words: ['Do', 'you', 'understand', 'the', 'lesson?'],
+        correctSentence: 'Do you understand the lesson?',
+        explanation: 'Auxiliar (Do) + Sujeito (you) + Verbo (understand).'
+      }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    let selectedChips = [];
+
+    function showPage(pageId) {
+      document.getElementById('page-review').classList.add('hidden');
+      document.getElementById('page-student').classList.add('hidden');
+      document.getElementById('page-quiz').classList.add('hidden');
+      document.getElementById('page-report').classList.add('hidden');
+
+      document.getElementById(pageId).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startQuiz() {
+      const input = document.getElementById('student-name-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      studentName = val;
+      document.getElementById('nav-student-name').innerText = studentName;
+      document.getElementById('header-student-badge').classList.remove('hidden');
+      document.getElementById('header-student-badge').classList.add('flex');
+
+      renderGrid();
+      loadQuestion(0);
+      showPage('page-quiz');
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('question-grid');
+      grid.innerHTML = '';
+
+      questions.forEach((q, i) => {
+        const btn = document.createElement('button');
+        btn.id = `grid-node-${i}`;
+        btn.onclick = () => loadQuestion(i);
+        btn.className = `h-8 w-full rounded-lg font-bold text-xs transition flex items-center justify-center border ${getGridClass(i)}`;
+        btn.innerText = i + 1;
+        grid.appendChild(btn);
+      });
+    }
+
+    function getGridClass(idx) {
+      if (idx === currentQuestionIdx) {
+        return 'ring-2 ring-brand-orange bg-slate-900 text-white border-slate-900';
+      }
+      const ans = userAnswers[idx];
+      if (!ans) {
+        return 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200';
+      }
+      return ans.isCorrect
+        ? 'bg-emerald-500 text-white border-emerald-600'
+        : 'bg-rose-500 text-white border-rose-600';
+    }
+
+    function updateGrid() {
+      questions.forEach((_, i) => {
+        const btn = document.getElementById(`grid-node-${i}`);
+        if (btn) {
+          btn.className = `h-8 w-full rounded-lg font-bold text-xs transition flex items-center justify-center border ${getGridClass(i)}`;
+        }
+      });
+    }
+
+    function loadQuestion(index) {
+      currentQuestionIdx = index;
+      const q = questions[index];
+
+      document.getElementById('quiz-progress-badge').innerText = `${index + 1} / 40`;
+      document.getElementById('question-block-badge').innerText = `Bloco ${getCategoryBlockNum(q.category)}: Frase ${q.category}`;
+      document.getElementById('question-format-badge').innerText = q.type === 'mcq' ? 'Múltipla Escolha' : 'Unscramble (Organizar)';
+
+      document.getElementById('question-prompt-text').innerText = q.prompt || 'Organize as palavras na ordem correta para formar a frase em inglês:';
+
+      const area = document.getElementById('question-interaction-area');
+      area.innerHTML = '';
+      selectedChips = [];
+
+      if (q.type === 'mcq') {
+        renderMCQ(q, area);
+      } else {
+        renderUnscramble(q, area);
+      }
+
+      const existing = userAnswers[index];
+      const feedback = document.getElementById('feedback-box');
+      const checkBtn = document.getElementById('btn-check');
+
+      if (existing) {
+        showFeedback(existing.isCorrect, q.explanation, existing.correctText);
+        checkBtn.disabled = true;
+        checkBtn.classList.add('opacity-40', 'cursor-not-allowed');
+      } else {
+        feedback.classList.add('hidden');
+        checkBtn.disabled = false;
+        checkBtn.classList.remove('opacity-40', 'cursor-not-allowed');
+      }
+
+      document.getElementById('btn-prev').disabled = (index === 0);
+      const nextLabel = document.getElementById('btn-next-label');
+      if (nextLabel) {
+        nextLabel.innerText = (index === questions.length - 1) ? 'Finalizar' : 'Próxima';
+      }
+
+      updateGrid();
+    }
+
+    function getCategoryBlockNum(cat) {
+      if (cat === 'Affirmative') return '1';
+      if (cat === 'Negative') return '2';
+      return '3';
+    }
+
+    function renderMCQ(q, container) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'space-y-2.5';
+
+      if (!q.shuffledOptions) {
+        const targetText = q.options[q.correctIndex];
+        const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+        q.shuffledOptions = shuffled;
+        q.shuffledCorrectIdx = shuffled.indexOf(targetText);
+      }
+
+      const letters = ['A', 'B', 'C', 'D', 'E'];
+
+      q.shuffledOptions.forEach((optText, i) => {
+        const label = document.createElement('label');
+        label.className = 'flex items-center p-3.5 rounded-xl border border-slate-200 hover:border-brand-orange hover:bg-orange-50/50 cursor-pointer transition text-sm font-medium text-slate-800';
+
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q-${q.id}-radios`;
+        radio.value = i;
+        radio.className = 'w-4 h-4 text-brand-orange focus:ring-brand-orange border-slate-300 mr-3';
+
+        if (userAnswers[currentQuestionIdx] && userAnswers[currentQuestionIdx].selectedIdx === i) {
+          radio.checked = true;
+        }
+
+        const tag = document.createElement('span');
+        tag.className = 'w-6 h-6 rounded bg-slate-100 text-slate-700 font-extrabold text-xs flex items-center justify-center mr-3 border border-slate-200';
+        tag.innerText = letters[i];
+
+        const text = document.createElement('span');
+        text.innerText = optText;
+
+        label.appendChild(radio);
+        label.appendChild(tag);
+        label.appendChild(text);
+        wrapper.appendChild(label);
+      });
+
+      container.appendChild(wrapper);
+    }
+
+    function renderUnscramble(q, container) {
+      if (!q.shuffledWords) {
+        q.shuffledWords = [...q.words].sort(() => Math.random() - 0.5);
+      }
+
+      const answerZone = document.createElement('div');
+      answerZone.id = 'unscramble-answer-zone';
+      answerZone.className = 'min-h-[60px] p-3.5 bg-slate-50 border-2 border-dashed border-slate-300 rounded-xl flex flex-wrap gap-2 items-center text-sm mb-4';
+
+      const placeholder = document.createElement('span');
+      placeholder.id = 'unscramble-placeholder';
+      placeholder.className = 'text-slate-400 text-xs italic pointer-events-none';
+      placeholder.innerText = 'Clique nos blocos abaixo na ordem correta para construir a frase...';
+      answerZone.appendChild(placeholder);
+
+      const bank = document.createElement('div');
+      bank.id = 'unscramble-bank';
+      bank.className = 'flex flex-wrap gap-2';
+
+      q.shuffledWords.forEach((word, idx) => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.id = `chip-${idx}`;
+        chip.className = 'word-chip px-3.5 py-2 bg-white border border-slate-300 rounded-xl shadow-sm font-semibold text-slate-800 text-sm hover:bg-brand-orange hover:text-white hover:border-brand-orange transition';
+        chip.innerText = word;
+        chip.onclick = () => onChipClick(word, idx, q);
+        bank.appendChild(chip);
+      });
+
+      container.appendChild(answerZone);
+      container.appendChild(bank);
+
+      const existing = userAnswers[currentQuestionIdx];
+      if (existing && existing.userWords) {
+        existing.userWords.forEach((w) => {
+          const matchIdx = q.shuffledWords.indexOf(w);
+          if (matchIdx !== -1) {
+            onChipClick(w, matchIdx, q);
+          }
+        });
+      }
+    }
+
+    function onChipClick(word, chipIdx, q) {
+      if (userAnswers[currentQuestionIdx]) return;
+
+      const ph = document.getElementById('unscramble-placeholder');
+      if (ph) ph.style.display = 'none';
+
+      const existingPos = selectedChips.findIndex(c => c.chipIdx === chipIdx);
+      const chipBtn = document.getElementById(`chip-${chipIdx}`);
+
+      if (existingPos !== -1) {
+        selectedChips.splice(existingPos, 1);
+        if (chipBtn) chipBtn.classList.remove('opacity-30', 'pointer-events-none');
+        updateUnscrambleDisplay();
+        return;
+      }
+
+      selectedChips.push({ word, chipIdx });
+      if (chipBtn) chipBtn.classList.add('opacity-30', 'pointer-events-none');
+      updateUnscrambleDisplay();
+    }
+
+    function updateUnscrambleDisplay() {
+      const zone = document.getElementById('unscramble-answer-zone');
+      zone.innerHTML = '';
+
+      if (selectedChips.length === 0) {
+        const ph = document.createElement('span');
+        ph.id = 'unscramble-placeholder';
+        ph.className = 'text-slate-400 text-xs italic pointer-events-none';
+        ph.innerText = 'Clique nos blocos abaixo na ordem correta para construir a frase...';
+        zone.appendChild(ph);
+        return;
+      }
+
+      selectedChips.forEach((item) => {
+        const span = document.createElement('span');
+        span.className = 'px-3 py-1.5 bg-brand-purple text-white rounded-lg text-sm font-semibold shadow-sm flex items-center space-x-1 cursor-pointer hover:bg-rose-600 transition';
+        span.innerText = item.word;
+        span.title = 'Clique para remover';
+        span.onclick = () => onChipClick(item.word, item.chipIdx, questions[currentQuestionIdx]);
+        zone.appendChild(span);
+      });
+    }
+
+    function checkCurrentAnswer() {
+      const q = questions[currentQuestionIdx];
+      let isCorrect = false;
+      let correctSentenceText = '';
+
+      if (q.type === 'mcq') {
+        const checked = document.querySelector(`input[name="q-${q.id}-radios"]:checked`);
+        if (!checked) {
+          alert('Por favor, selecione uma opção antes de verificar.');
+          return;
+        }
+        const selIdx = parseInt(checked.value);
+        isCorrect = (selIdx === q.shuffledCorrectIdx);
+        correctSentenceText = q.shuffledOptions[q.shuffledCorrectIdx];
+
+        userAnswers[currentQuestionIdx] = {
+          isCorrect,
+          selectedIdx: selIdx,
+          correctText: correctSentenceText
+        };
+      } else {
+        if (selectedChips.length === 0) {
+          alert('Por favor, organize as palavras antes de verificar.');
+          return;
+        }
+        const built = selectedChips.map(c => c.word).join(' ').trim();
+        const target = q.correctSentence.trim();
+        
+        isCorrect = (built.toLowerCase().replace(/\s+/g, ' ') === target.toLowerCase().replace(/\s+/g, ' '));
+        correctSentenceText = q.correctSentence;
+
+        userAnswers[currentQuestionIdx] = {
+          isCorrect,
+          userWords: [...selectedChips.map(c => c.word)],
+          builtSentence: built,
+          correctText: correctSentenceText
+        };
+      }
+
+      showFeedback(isCorrect, q.explanation, correctSentenceText);
+      updateGrid();
+
+      const btn = document.getElementById('btn-check');
+      btn.disabled = true;
+      btn.classList.add('opacity-40', 'cursor-not-allowed');
+    }
+
+    function showFeedback(isCorrect, explanation, correctText) {
+      const box = document.getElementById('feedback-box');
+      box.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-950', 'bg-rose-50', 'border-rose-200', 'text-rose-950');
+
+      if (isCorrect) {
+        box.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-950');
+        box.innerHTML = `
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-circle-check text-emerald-600 text-xl mt-0.5"></i>
+            <div>
+              <strong class="font-extrabold block text-base text-emerald-800">Resposta Correta! Excelente!</strong>
+              <p class="mt-1 text-xs sm:text-sm text-emerald-900">${explanation}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        box.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-950');
+        box.innerHTML = `
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-circle-xmark text-rose-600 text-xl mt-0.5"></i>
+            <div>
+              <strong class="font-extrabold block text-base text-rose-800">Resposta Incorreta.</strong>
+              <p class="mt-1 text-xs sm:text-sm font-semibold">Frase Correta: <span class="underline">${correctText}</span></p>
+              <p class="mt-1 text-xs sm:text-sm text-rose-900">Justificativa Gramatical: ${explanation}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIdx > 0) {
+        loadQuestion(currentQuestionIdx - 1);
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIdx < questions.length - 1) {
+        loadQuestion(currentQuestionIdx + 1);
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      let correctCount = 0;
+      let wrongCount = 0;
+
+      let affCorrect = 0, affTotal = 10;
+      let negCorrect = 0, negTotal = 15;
+      let intCorrect = 0, intTotal = 15;
+
+      let ingCorrect = 0, ingTotal = 0;
+
+      questions.forEach((q, i) => {
+        const ans = userAnswers[i];
+        const isRight = ans && ans.isCorrect;
+
+        if (isRight) correctCount++; else wrongCount++;
+
+        if (q.category === 'Affirmative' && isRight) affCorrect++;
+        if (q.category === 'Negative' && isRight) negCorrect++;
+        if (q.category === 'Interrogative' && isRight) intCorrect++;
+
+        if (q.hasIng) {
+          ingTotal++;
+          if (isRight) ingCorrect++;
+        }
+      });
+
+      const percent = Math.round((correctCount / questions.length) * 100);
+
+      document.getElementById('report-student-name').innerText = studentName || 'Aluno';
+      document.getElementById('report-percent').innerText = `${percent}%`;
+      document.getElementById('report-correct').innerText = correctCount;
+      document.getElementById('report-wrong').innerText = wrongCount;
+
+      document.getElementById('topic-aff-text').innerText = `${affCorrect} / ${affTotal}`;
+      document.getElementById('topic-aff-bar').style.width = `${(affCorrect / affTotal) * 100}%`;
+
+      document.getElementById('topic-neg-text').innerText = `${negCorrect} / ${negTotal}`;
+      document.getElementById('topic-neg-bar').style.width = `${(negCorrect / negTotal) * 100}%`;
+
+      document.getElementById('topic-int-text').innerText = `${intCorrect} / ${intTotal}`;
+      document.getElementById('topic-int-bar').style.width = `${(intCorrect / intTotal) * 100}%`;
+
+      document.getElementById('topic-ing-text').innerText = `${ingCorrect} / ${ingTotal}`;
+      document.getElementById('topic-ing-bar').style.width = `${(ingCorrect / ingTotal) * 100}%`;
+
+      const list = document.getElementById('report-recommendations-list');
+      list.innerHTML = '';
+
+      const recs = [];
+
+      if (affCorrect < 7) {
+        recs.push('• <strong>Frases Afirmativas & Flexões do He/She/It:</strong> Revise as regras de acréscimo do sufixo -s, -es e -ies quando o sujeito estiver na 3ª pessoa do singular.');
+      }
+      if (negCorrect < 10) {
+        recs.push('• <strong>Frases Negativas (don\'t / doesn\'t):</strong> Pratique o uso dos auxiliares e lembre-se de que ao usar "doesn\'t" para He/She/It o verbo volta para sua forma original.');
+      }
+      if (intCorrect < 10) {
+        recs.push('• <strong>Frases Interrogativas (Do / Does):</strong> Lembre-se de posicionar o auxiliar "Do" ou "Does" no início da pergunta antes do sujeito.');
+      }
+      if (ingCorrect < (ingTotal * 0.7)) {
+        recs.push('• <strong>Verbo + Gerúndio (-ING):</strong> Preste atenção aos verbos de preferência (like, love, enjoy, hate, prefer). O segundo verbo da frase DEVE obrigatoriamente receber a terminação -ing.');
+      }
+
+      if (recs.length === 0) {
+        list.innerHTML = `
+          <li class="flex items-center text-emerald-800 font-bold">
+            <i class="fa-solid fa-circle-check text-emerald-600 mr-2 text-base"></i>
+            Parabéns! Excelente desempenho! Você dominou perfeitamente todos os tópicos do Simple Present e a estrutura de verbo com gerúndio.
+          </li>
+        `;
+      } else {
+        recs.forEach(r => {
+          const li = document.createElement('li');
+          li.innerHTML = r;
+          list.appendChild(li);
+        });
+      }
+
+      showPage('page-report');
+    }
+
+    function restartQuiz() {
+      userAnswers = new Array(questions.length).fill(null);
+      questions.forEach(q => {
+        delete q.shuffledOptions;
+        delete q.shuffledWords;
+      });
+      loadQuestion(0);
+      showPage('page-quiz');
+    }
+  </script>
+</body>
+</html>
